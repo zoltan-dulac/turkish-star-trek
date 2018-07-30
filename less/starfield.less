@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    background: black;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+    will-change: none !important;
+}
+
+
+.string {
+    content: "";
+    left: calc(~"50% - 83px");
+    top: calc(~"-50vw - 130px");
+    width: 2px;
+    height: 60vw;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.5;
+    transform: translateZ(0);
+    
+}
+
+#enterprise-front {
+    position: absolute;
+    top: calc(~"50vh - 249px");
+    left: 0;
+    transform: translateZ(0) scale(0.33) translateX(-1592px);
+    display: none;
+
+    &.animate {
+        display: block;
+        animation: enterprise1 linear 3s 3s;
+    }
+
+    &.fast-fly {
+        display: block;
+        animation: fast-fly linear 2s 3s forwards;
+
+        .string {
+            width: 4px;
+        }
+
+        #enterprise-front__image {
+            animation: fall linear 0.5s 5s forwards;
+        }
+    }
+    
+
+    &__image {
+        position: relative;
+        z-index: 2;
+        animation: wobble ease-in-out 1s infinite alternate;
+    }
+}
+
+#enterprise-back {
+    position: absolute;
+    top: 20vh;
+    left: 30vw;
+    transform: translateZ(0) scale(3) translate(-1000px, -549px);
+    z-index: 2;
+   
+
+    &.animate {
+        display: block;
+        animation: enterprise-to-planet ease-out 4s 0s forwards;
+    }
+
+    &__image {
+        position: relative;
+        z-index: 2;
+        transform-origin: 57% 50%;
+        animation: wobble ease-in-out 1s infinite alternate;
+    }
+
+    .string {
+        left: calc(65%);
+        top: calc(-128vw);
+        height: 150vw;
+        width: 3px;
+        z-index: 3;
+    }
+    
+}
+
+#enterprise-side {
+    position: absolute;
+    top: calc(~"50vh - 166px");
+    left: calc(~"50vw - 630px");
+    transform: translateZ(0);
+    z-index: 2;
+    display: none;
+
+    &.animate {
+        display: block;
+        animation: enterprise-orbit linear 4s 0s forwards;
+    }
+
+    &__image {
+        position: relative;
+        z-index: 2;
+        animation: wobble ease-in-out 1s infinite alternate;
+    }
+
+    .string {
+        left: calc(~"57% - 83px") !important;
+        top: calc(~"-40vw - 130px") !important;
+        width: 1px;
+    }
+}
+
+#planet, #planet-side {
+    position: absolute;
+    top: -41vh;
+    left: -54vw;
+	width: 193px;
+	height: 193px;
+	background: url('../images/jupiter-skin.jpg') repeat 0 0;
+	border-radius: 50%;
+	box-shadow: inset 16px 0 40px 3px rgba(0,0,0,0.9),
+                inset -3px 0 5px 2px rgba(255,255,255,0.16);
+    will-change: background-position;
+    filter: blur(2px);
+    z-index: 0;
+    
+    
+}
+
+#planet {
+    
+    transform: translateZ(0) rotate(10deg);
+
+    &.animate {
+        top: 41vh;
+        left: 54vw;
+        animation: planet-rotate 40s linear infinite;
+    }
+}
+
+#planet-side {
+    top: initial;
+    left: initial;
+    filter: none;
+    transform: translate3d(46vw, 20vh, 0) rotate(-40deg) scale(7);
+    display: none;
+
+    &.animate {
+        display: block;
+        filter: blur(0.5px);
+        //animation: planet-rotate 120s linear infinite;
+    }
+}
+
+
+@keyframes enterprise1 {
+    0% {
+        opacity: 70%;
+        transform: translateZ(0) scale(0.33) translateX(-1592px);
+    }
+
+    40% {
+        opacity: 70%;
+        transform: translateZ(0) scale(0.44) translateX(40vw);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateZ(0) scale(2) translateX(100vw);
+    }
+
+}
+
+@keyframes fast-fly {
+    0% {
+        transform: translate3d(60vw, -30vh, 0) scale(-0.33, 0.33) ;
+    }
+
+    100% {
+        transform: translate3d(50vw, 0vh, 0) scale(-0.6, 0.6) ;
+    }
+
+    /* 100% {
+        transform: translate3d(-80vw, 50vh, 0) scale(-2, 2) ;
+    } */
+}
+
+@keyframes fall {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 120vh, 0);
+    }
+}
+
+@keyframes enterprise-to-planet {
+    0% {
+        transform: translateZ(0) scale(3) translate(-1007px, -549px);  
+    }
+
+    100% {
+        transform: translateZ(0) scale(0.2) translate(0px, 0px);
+    }
+}
+
+@keyframes enterprise-orbit {
+    0% {
+        transform: translate3d(calc(~"-1260px - 25vw") , 0, 0);  
+    }
+
+    100% {
+        transform: translate3d(calc(~"100vw"), 0, 0);
+    }
+}
+
+@keyframes planet-rotate {
+	0% { 	
+		background-position: 0 0;
+	}
+	
+	100%  {
+		background-position: 386px 0;
+	}
+}
+
+@keyframes wobble {
+    0% {
+        transform: translateZ(0) rotate(-5deg);
+    }
+
+    100% {
+        transform: translateZ(0) rotate(5deg);
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+    <title>3D Starfield in HTML5 Canvas</title>
+    <link href="css/starfield.css" type="text/css" rel="stylesheet" />
+
+
+    <body
+        data-preload-images="enterprise-intro2,enterprise-back,enterprise-side"
+        data-image-dir="images"	
+    >
+
+
+        <canvas id='tutorial' width='640' height='480'>
+            Your browser does not support HTML5 canvas. Please upgrade your browser.
+        </canvas>
+
+        <div id="enterprise-front">
+            <div class="string"></div>
+            <img id="enterprise-front__image" src="images/enterprise-intro2.png" />
+        </div>
+
+        <div id="enterprise-back">
+            <div class="string"></div>
+            <img id="enterprise-back__image" src="images/enterprise-back.png" />
+
+        </div>
+
+        <div id="enterprise-side">
+            <div class="string"></div>
+            <img id="enterprise-side__image" src="images/enterprise-side.png" />
+        </div>
+
+        <div id="planet"></div>
+
+        <div id="planet-side"></div>
+
+        
+
+        <script src="js/starfield.js"></script>
+    </body>
+
+</html>
