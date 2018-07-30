@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background: black;
+    overflow: hidden;
 }
 
 canvas {
@@ -98,7 +99,7 @@ canvas {
     transform: translateZ(0);
     z-index: 2;
     display: none;
-
+    
     &.animate {
         display: block;
         animation: enterprise-orbit linear 4s 0s forwards;
@@ -154,10 +155,12 @@ canvas {
 
     &.animate {
         display: block;
-        filter: blur(0.5px);
-        //animation: planet-rotate 120s linear infinite;
+        //filter: blur(0.5px);
+        animation: planet-rotate 120s linear infinite;
     }
 }
+
+// look at https://codepen.io/zoltan-dulac/pen/bjaqmJ for swinging animation.
 
 
 @keyframes enterprise1 {

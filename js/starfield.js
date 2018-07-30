@@ -205,30 +205,34 @@ const starfield = new function () {
     }
 
     const flyTowardPlanetScene = (e) => {
-        //alert(e.animationName)
-        if (true || e.animationName === 'enterprise-to-planet') {
-            els.enterpriseFront.classList.remove('animate');
-            els.enterpriseBack.classList.add('animate');
-            els.planet.classList.add('animate');
-            this.resetStars();
-        }
+        requestAnimationFrame(() => {
+            if ( e.animationName === 'enterprise1') {
+                els.enterpriseFront.classList.remove('animate');
+                this.resetStars();
+                els.enterpriseBack.classList.add('animate');
+                els.planet.classList.add('animate');
+            }
+        });
     }
 
     const flySideOfPlanet = (e) => {
-        
-        els.enterpriseBack.classList.remove('animate');
-        els.planet.classList.remove('animate');
-        els.planetSide.classList.add('animate');
-        els.enterpriseSide.classList.add('animate');
-        this.resetStars();
+        requestAnimationFrame(() => {
+            els.enterpriseBack.classList.remove('animate');
+            els.planet.classList.remove('animate');
+            this.resetStars();
+            els.planetSide.classList.add('animate');
+            els.enterpriseSide.classList.add('animate');
+
+        });
     }
 
     const lastAnimation = (e) => {
-        els.planetSide.classList.remove('animate');
-        els.enterpriseSide.classList.remove('animate');
-        this.resetStars();
-        return;
-        els.enterpriseFront.classList.add('fast-fly');
+        requestAnimationFrame(() => {
+            els.planetSide.classList.remove('animate');
+            els.enterpriseSide.classList.remove('animate');
+            this.resetStars();
+            els.enterpriseFront.classList.add('fast-fly');
+        });
     }
 };
 

@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background: black;
+  overflow: hidden;
 }
 canvas {
   width: 100vw;
@@ -125,7 +126,7 @@ canvas {
 }
 #planet-side.animate {
   display: block;
-  filter: blur(0.5px);
+  animation: planet-rotate 120s linear infinite;
 }
 @keyframes enterprise1 {
   0% {
